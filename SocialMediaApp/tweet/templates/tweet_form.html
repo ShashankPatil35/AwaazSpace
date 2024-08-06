@@ -1,0 +1,53 @@
+{% extends "layout.html" %} 
+
+{% block title%}
+Tweet
+{% endblock  %}
+
+{% block content %}
+<h1 class="text-center mt-4"> Welcome to Django PRJS</h1>
+
+<h2>
+    {%if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create Tweet
+    {% endif %} 
+    <form method="post" enctype="multipart/form-data"
+    class="form"
+    >
+    {% csrf_token %}
+    {{ form.as_p  }}
+    <button class="btn btn-warning" type="submit">Submit</button>
+    </form>
+    <a href="{% url 'tweet_list' %}">Tweet List</a>
+
+</h2>
+
+
+{% endblock%}
+
+{% comment %} .................................... {% endcomment %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %}Edit Tweet{% else %}Create Tweet{% endif %}</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>{% if form.instance.pk %}Edit Tweet{% else %}Create Tweet{% endif %}</h1>
+        <form method="post" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-warning" type="submit">Submit</button>
+        </form>
+        <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-3">Tweet List</a>
+    </div>
+    <!-- Include Bootstrap JS (optional, for components requiring JavaScript) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</body>
+</html> {% endcomment %}
