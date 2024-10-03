@@ -39,7 +39,6 @@
             
             </form>
             <a href="{% url 'tweet_list' %}" class="btn btn-primary mx-2">Tweet Home</a>
-
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
@@ -48,6 +47,7 @@
             {% else %}
             <a href="{% url 'register' %}" class="btn btn-primary mx-2">Register</a>
             <a href="{% url 'login' %}" class="btn btn-success mx-2">Login</a>
+            
             {% endif %}
           </div>
         </div>

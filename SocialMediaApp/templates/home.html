@@ -1,0 +1,131 @@
+{% comment %} <h1>Hello Payment</h1>
+
+<h2>Buy Subscription </h2>
+<form action="{% url 'charge' %}" method="POST">
+    {% csrf_token %}
+<script src = "https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key = "{{ key }}"
+    data-description = "Payment Gateway"
+    data-amount = "5000"
+    data-locale = "auto">
+</script>
+</form> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Subscription</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+        }
+
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #343a40;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        .stripe-button-el {
+            background-color: #6c63ff !important;
+            border: none !important;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stripe-button-el:hover {
+            background-color: #5146d9 !important;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stripe-button-el::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stripe-button-el:hover::before {
+            opacity: 1;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .btn-primary:hover {
+            background-color: #5146d9 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="payment-container">
+            <h1 class="mb-4">Welcome to Payment Subscription</h1>
+            <h2 class="mb-5">Buy Subscription for ₹50</h2>
+            <form action="{% url 'charge' %}" method="POST">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ key }}"
+                    data-description="Secure Payment Gateway"
+                    data-amount="5000"
+                    data-locale="auto"
+                    data-currency="inr"
+                    data-label="Pay Now"
+                    data-panel-label="Subscribe for ₹50"
+                    data-image="https://example.com/logo.png" <!-- Replace with your logo URL -->
+                    data-name="Your Website Name"
+                    data-email="{{ user.email }}" <!-- Optional -->
+                >
+                </script>
+            </form>
+            <p class="mt-4 text-muted">Your payment is 100% secure with Stripe.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

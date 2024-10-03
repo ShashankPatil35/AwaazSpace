@@ -5,10 +5,12 @@ Tweet
 {% endblock  %}
 
 {% block content %}
-<h1 class="text-center mt-4"> Welcome to Django PRJS</h1>
-
+<h1 class="text-center mt-4"> Welcome to Social Media App </h1>
 
 <a class="btn btn-primary mb-5 " href="{% url 'tweet_create' %}">Create a post</a>
+
+<a class="btn btn-primary mb-5 " href="{% url 'home'%}" class="btn btn-primary mx-2">Buy Subscription</a>
+
 
 <div class="container row gap-3">
   {% for tweet in tweets %}

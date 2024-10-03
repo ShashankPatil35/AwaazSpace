@@ -27,4 +27,7 @@ urlpatterns = [
     path('tweet/', include('tweet.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
+
+    path('payments/',include('payments.urls'))
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
