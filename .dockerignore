@@ -1,0 +1,12 @@
+
+Dockerfile
+
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git
+.venv
+node_modules
+media/

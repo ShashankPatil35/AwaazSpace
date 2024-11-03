@@ -1,0 +1,13 @@
+name: my-docker-project
+version: '3.8'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/Tweet-App  # Bind mount for live updates
+      - db_data:/Tweet-App/SocialMediaApp/db.sqlite3 # Volume for persistent database
+    ports:
+      - "8000:8000"
+
+volumes:
+  db_data:
