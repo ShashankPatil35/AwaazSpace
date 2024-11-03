@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE=1
 
 
-# Set the working directory inside container
+# Set working directory inside container
 WORKDIR /Tweet-App/SocialMediaApp
 
 # Copy requirements.txt to the working directory
@@ -21,7 +21,7 @@ RUN pip install --upgrade pip && pip install -r /Tweet-App/requirements.txt
 # Copy the entire project into the container
 COPY . /Tweet-App/
 
-EXPOSE 8000
+EXPOSE 1000
 
 # Set the default command to run Django’s development server
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
