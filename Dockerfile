@@ -21,7 +21,7 @@ RUN pip install --upgrade pip && pip install -r /Tweet-App/requirements.txt
 # Copy the entire project into the container
 COPY . /Tweet-App/
 
-EXPOSE 1000
+EXPOSE 8000
 
 # Set the default command to run Django’s development server
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
