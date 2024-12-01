@@ -23,10 +23,10 @@ db.sqlite3
 *.env
 *.log
 
-# Node modules (if using Node.js)
+
 node_modules/
 
-# IDE or editor specific files
+
 .idea/
 .vscode/
 *.swp
